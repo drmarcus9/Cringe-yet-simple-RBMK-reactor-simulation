@@ -1,0 +1,69 @@
+<html>
+    <title>RBMK-1000 Reactor core simulation</title>
+
+    <head>
+        <h1>RBMK-1000 REACTOR CORE</h1>
+
+        <style>
+            h1 {text-align: center;}
+
+
+        </style>
+
+        <script>
+            
+            console.log("Simulation has started");
+
+            // Core temp variable:
+            var temp = "FALSE SCAN"
+            // Will display the core temperature
+            document.write("CORE TEMP: " + temp);
+
+            function tempDown() {
+                temp = "3,000 MW"
+                // Waits to simulate time and heat increasing/decreasing
+                setTimeout(alert("Core is now at 3,000 MW"),4000);
+                temp = "2,600 MW"
+                setTimeout(alert("Core is now at 2,600 MW"),4000);
+                temp = "980 MW"
+                setTimeout(alert("Core is now at 980 MW"),4000);
+                temp = "500 MW"
+                setTimeout(alert("Core is now at 500 MW"),4000);
+                temp = "200 MW"
+                setTimeout(alert("Core is now at 200 MW, It is recommended you raise rods to gain more power"),4000);
+            }
+
+            // When the rods are raised the fission reaction would increase temp so this will increase temp
+            function tempUp() {
+                temp = "3,000 MW"
+                setTimeout(alert("Core is now at 3,255 MW"),4000);
+                temp = "4,000 MW"
+                setTimeout(alert("Core is now at 4,000 MW"),4000);
+                temp = "5,000 MW"
+                setTimeout(alert("Core is now at 5,000 MW, to prevent a meltdown please press AZ-5 (SCRAM)"),4000);
+            }
+
+            // Will explode the reactor if the temp is at a certain temperature
+            function scram() {
+                setTimeout(alert("AZ-5 has been pressed, core shutting down..."),4000);
+                
+            }
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <a>
+            <img alt="Qries" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/RBMK_Reaktor_ChNPP-4.svg/260px-RBMK_Reaktor_ChNPP-4.svg.png"
+            width="640" height="640">
+        </a> 
+
+        <input type="button" value="AZ-5 (SCRAM)" onclick="scram()"/>
+        <input type="button" value="Raise rods" onclick="tempUp()"/>
+        <input type="button" value="Lower rods" onclick="tempDown()"/>
+
+    </body>
+
+</html>
